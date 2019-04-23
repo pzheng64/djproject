@@ -29,7 +29,6 @@ spec:
           value: {{ $pval }}
 {{- end }}
         ports:
-        - containerPort: {{ .Values.service.internalPort }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
 {{- end }}

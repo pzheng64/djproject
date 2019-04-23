@@ -2,16 +2,11 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ .Values.service.name }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   rules:
-  - host: {{ .Release.Name }}.{{ .Values.basedomain }}
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: {{ template "fullname" . }}
-          servicePort: {{ .Values.service.externalPort }}
+  tls:
+  - hosts:
 {{- end -}}

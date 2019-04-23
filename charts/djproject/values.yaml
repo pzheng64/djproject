@@ -2,6 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
+basedomain: k8.devfactory.com
 image:
   repository: draft
   tag: dev
@@ -16,20 +17,18 @@ knativeDeploy: false
 service:
   name: djproject
   type: ClusterIP
-  externalPort: 80
-  internalPort: 8080
   annotations:
-    fabric8.io/expose: "true"
+    fabric8.io/expose: "false"
     fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
 resources:
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 8000m
+    memory: 30720Mi
   requests:
-    cpu: 100m
+    cpu: 50m
     memory: 128Mi
 ingress:
-  enabled: false
+  enabled: true
 probePath: /
 livenessProbe:
   initialDelaySeconds: 60
