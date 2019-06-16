@@ -4,8 +4,8 @@
 replicaCount: 1
 basedomain: k8.devfactory.com
 image:
-  repository: draft
-  tag: dev
+  repository: 082830052325.dkr.ecr.us-east-1.amazonaws.com/pzheng64/djproject
+  tag: 0.0.40
   pullPolicy: IfNotPresent
 
 # define environment variables here as a map of key: value
